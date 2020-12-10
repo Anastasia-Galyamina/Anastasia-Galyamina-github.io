@@ -1,0 +1,23 @@
+body  {
+    background-color: #eee;      
+
+    font-size: 10px;
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    
+    /*text-transform: uppercase;*/
+    text-align: left;    
+
+}
+
+.heading {
+    background-color: #297B67; 
+    height: 40px;
+        
+}
+
+#logo {
+    width: 128px;    
+    height: 64px;
+    margin: 7px 7px 7px 0;
+}
