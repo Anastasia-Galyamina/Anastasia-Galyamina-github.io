@@ -44,6 +44,45 @@ form.addEventListener("submit", function(event) {
     })
 });
 
+form.addEventListener("pucture", function(event) {
+  event.preventDefault(); 
+  
+  const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Добавить картинку',
+      text: "Добавить картинку на сайт?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Да',
+      cancelButtonText: 'Нет',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Картинку пока добавить нельзя, но вы можете добавить название новости',
+          'Добавление картинки закончено',
+          'success'
+        )
+        setTimeout(function () {
+            window.location.href = "index.html";
+        }, 1000);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swalWithBootstrapButtons.fire(
+          'Отменена',
+          'Не удалось сохранить',
+          'error'
+        )
+      }
+    })
+});
+
 form.addEventListener("formdata", event => {
     const data = event.formData;
 
